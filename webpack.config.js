@@ -34,17 +34,19 @@ module.exports = {
   },
   plugins: [
     new WriteFileWebpackPlugin(),
-    new CopyWebpackPlugin(
-      [
+    new CopyWebpackPlugin({
+      patterns: [
         {
+          context: 'src',
           from: '**/*',
-          to: outputPath,
-          ignore: [
-            '*.js'
-          ]
+          globOptions: {
+            ignore: [
+              '*.js'
+            ]
+          },
+          to: outputPath
         }
-      ],
-      { context: 'src' }
-    )
+      ]
+    })
   ]
 }
