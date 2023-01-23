@@ -2,8 +2,8 @@
 #  file: .gitpod.Dockerfile
 
 tasks:
-  - init: yarn install
-    command:  yarn run startgitpod
+  - init: pnpm install
+    command:  pnpm build && pnpm start
 
 ports:
     - port: 8080
